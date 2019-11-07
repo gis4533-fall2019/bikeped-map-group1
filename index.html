@@ -26,9 +26,9 @@
 <body>
     
     <header>
-        <h1> <p style="font-family: serif; color: darkgreen; font-size: 30px;">Bicycle and Pedestrain Counts of Duluth</p> </h1>
+        <h1> <p style="font-family: serif; color: darkgreen; font-size: 30px;">Bicycle and Pedestrain Counts of Duluth, Minnesota</p> </h1>
             
-        <h3> <p style="font-family: serif; color: darkgrey; font-size: 16px;">GIS 4533 Web-based GIS <br><br> <br> <a href="https://leafletjs.com"></a> </p> </h3>
+        <h3> <p style="font-family: serif; color: darkgrey; font-size: 16px;">GIS 4533 Web-based GIS <br>Authors: Keely Hansen, Sam Sharp and Ryan Peterson<br>Source: Arrowhead Regional Developement Commision (ARDC) </p> </h3>
         
     </header>
     
@@ -48,13 +48,6 @@
     
     // Add new base map layer to map from http://leaflet-extras.github.io/leaflet-providers/preview/
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC' }).addTo(map);
-        
-    // Create point feature for Duluth City Hall, style and add to map
-    var myDataPoint = L.marker([46.783829, -92.105275]).addTo(map);
-        
-        
-    // Bind popup to data point feature, style picture
-    myDataPoint.bindPopup("<h3>Duluth City Hall</h3><p>Duluth, MN<br>Information about City Hall <br> <img src='City-Hall.png' </p>");
         
         
     // Add map coordinates on mouse move
