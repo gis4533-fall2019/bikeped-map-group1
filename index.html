@@ -35,10 +35,10 @@
     <!--    Added parameters to allow full screen map, removed pixel dimentions from http://www.d3noob.org/2014/02/make-your-leafletjs-map-full-screen.html-->
     <div id="map"></div>
     
-    <!--    container for displaying map coordinates-->
+    <!-- Container for displaying map coordinates-->
     <pre id= 'info'></pre>
     
-    <!--  removed div code with pixels  <div id="map" style="width: 705px; height: 375px"></div>-->
+    <!--  Leaflet Java Script plugin-->
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
     
     <script>  
@@ -48,7 +48,6 @@
     
     // Add new base map layer to map from http://leaflet-extras.github.io/leaflet-providers/preview/
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC' }).addTo(map);
-        
         
     // Add map coordinates on mouse move
     // https://docs.mapbox.com/,apbox-gl-js/example/mouse-position/
