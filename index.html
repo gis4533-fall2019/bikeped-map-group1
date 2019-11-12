@@ -58,7 +58,37 @@
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC' }).addTo(map);
         
     // add hosted feature layer
-        const PedCountsLayer = L.esri.featureLayer({url: 'https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/Bike_Duluth/FeatureServer/0'
+    const PedCountsLayer = L.esri.featureLayer({url: 'https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/Bike_Duluth/FeatureServer/0',
+    style: function (feature) {
+    var c;
+    var o = 0.75;
+    switch (feature.properties.COUNT) {
+        case '0-100'
+          c = '#ffffb2';
+          break;
+        case '101-200':
+          c = '#fecc5c';
+          break;
+        case '201-500':
+          c = '#fd8d3c';
+          break;
+        case '501-1000':
+          c = '#f03b20';
+          break;
+        case '1001-1500':
+          c = '#bd0026';
+          break;
+        case '1501-2000':
+          c = '#a50f15';
+          break;
+        case '2001-2500':
+          c = '#000000';
+          break;
+        default:
+          c = '#000000';
+      }
+      return { color: c, opacity: o, weight: 5 }; 
+        }
         }).addTo(map);
         
      // set up popup for PedCounts layer
@@ -68,8 +98,38 @@
         });
 
     // add hosted feature layer
-        const BikeCounts = L.esri.featureLayer({
-            url: 'https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/Bike_Duluth/FeatureServer/0'
+    const BikeCounts = L.esri.featureLayer({
+    url:'https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/Bike_Duluth/FeatureServer/0',
+    style: function (feature) {
+    var c;
+    var o = 0.75;
+    switch (feature.properties.COUNT) {
+        case '0-100'
+          c = '#ffffcc';
+          break;
+        case '101-200':
+          c = '#a1dab4';
+          break;
+        case '201-500':
+          c = '#41b6c4';
+          break;
+        case '501-1000':
+          c = '#2c7fb8';
+          break;
+        case '1001-1500':
+          c = '#253494';
+          break;
+        case '1501-2000':
+          c = '#302e75';
+          break;
+        case '2001-2500':
+          c = '#000000';
+          break;
+        default:
+          c = '#000000';
+      }
+      return { color: c, opacity: o, weight: 5 }; 
+        }
         }).addTo(map);
         
      // set up popup for PedCounts layer
