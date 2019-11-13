@@ -58,7 +58,29 @@
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC' }).addTo(map);
         
     // add hosted feature layer
-        const PedCountsLayer = L.esri.featureLayer({url: 'https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/Bike_Duluth/FeatureServer/0'
+    const PedCountsLayer = L.esri.featureLayer({url: 'https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/Bike_Duluth/FeatureServer/0',
+    style: function (feature) {
+    var c;
+    var o = 0.75;
+    switch (feature.properties.LevelofUse) {
+        case 'low':
+          c = '#ffffb2';
+          break;
+        case 'Moderate':
+          c = '#fd8d3c';
+          break;
+        case 'High':
+          c = '#f03b20';
+          break;
+        case 'Very Hgh':
+          c = '#a50f15';
+          break;
+        case 'Other':
+          c = '#000000';
+          break;
+      }
+      return { color: c, opacity: o, weight: 5 }; 
+        }
         }).addTo(map);
         
      // set up popup for PedCounts layer
@@ -68,8 +90,30 @@
         });
 
     // add hosted feature layer
-        const BikeCounts = L.esri.featureLayer({
-            url: 'https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/Bike_Duluth/FeatureServer/0'
+    const BikeCounts = L.esri.featureLayer({
+    url:'https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/Bike_Duluth/FeatureServer/0',
+    style: function (feature) {
+    var c;
+    var o = 0.75;
+    switch (feature.properties.LevelofUse) {
+        case 'Low':
+          c = '#41b6c4';
+          break;
+        case 'Moderate':
+          c = '#2c7fb8';
+          break;
+        case 'High':
+          c = '#253494';
+          break;
+        case 'Very High':
+          c = '#302e75';
+          break;
+        case 'Other':
+          c = '#000000';
+          break;
+      }
+      return { color: c, opacity: o, weight: 5 }; 
+        }
         }).addTo(map);
         
      // set up popup for PedCounts layer
