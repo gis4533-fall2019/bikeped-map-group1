@@ -62,30 +62,22 @@
     style: function (feature) {
     var c;
     var o = 0.75;
-    switch (feature.properties.COUNT) {
-        case '0-100'
+    switch (feature.properties.LevelofUse) {
+        case 'low':
           c = '#ffffb2';
           break;
-        case '101-200':
-          c = '#fecc5c';
-          break;
-        case '201-500':
+        case 'Moderate':
           c = '#fd8d3c';
           break;
-        case '501-1000':
+        case 'High':
           c = '#f03b20';
           break;
-        case '1001-1500':
-          c = '#bd0026';
-          break;
-        case '1501-2000':
+        case 'Very Hgh':
           c = '#a50f15';
           break;
-        case '2001-2500':
+        case 'Other':
           c = '#000000';
           break;
-        default:
-          c = '#000000';
       }
       return { color: c, opacity: o, weight: 5 }; 
         }
@@ -103,30 +95,22 @@
     style: function (feature) {
     var c;
     var o = 0.75;
-    switch (feature.properties.COUNT) {
-        case '0-100'
-          c = '#ffffcc';
-          break;
-        case '101-200':
-          c = '#a1dab4';
-          break;
-        case '201-500':
+    switch (feature.properties.LevelofUse) {
+        case 'Low':
           c = '#41b6c4';
           break;
-        case '501-1000':
+        case 'Moderate':
           c = '#2c7fb8';
           break;
-        case '1001-1500':
+        case 'High':
           c = '#253494';
           break;
-        case '1501-2000':
+        case 'Very High':
           c = '#302e75';
           break;
-        case '2001-2500':
+        case 'Other':
           c = '#000000';
           break;
-        default:
-          c = '#000000';
       }
       return { color: c, opacity: o, weight: 5 }; 
         }
