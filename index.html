@@ -30,14 +30,40 @@
             padding: 0;
         }
 
+        header{
+            top: 0;
+            width: 100%;
+            z-index: auto;
+            height: 100px;
+            color: black;
+            background-color: darkblue;
+            padding-left: 12px;
+            overflow: hidden;
+            font-family: Times New Roman, sans-serif;
+        }
+        
+        header * {
+            display: inline-block;
+            margin-right: auto;
+            margin-top: auto;
+        }
+     
+        .right * {
+            float: right;
+        }
+        
+        header h3 {
+            margin-top: 25px;
+        }
+        
     </style>
     
 </head>
     
 <body>
     
-    <header>
-        <h1> <p style="font-family: serif; color: darkgreen; font-size: 30px;">Bicycle and Pedestrain Counts of Duluth, Minnesota</p> </h1>
+    <header id="header">
+        <h1> <p style="font-family: serif; color: darkgrey; font-size: 30px;">Bicycle and Pedestrain Counts of Duluth, Minnesota</p> </h1>
             
         <h3> <p style="font-family: serif; color: darkgrey; font-size: 16px;">GIS 4533 Web-based GIS <br>Authors: Keely Hansen, Sam Sharp and Ryan Peterson<br>Source: Arrowhead Regional Developement Commision (ARDC) </p> </h3>
         
@@ -86,7 +112,7 @@
      // set up popup for PedCounts layer
         PedCountsLayer.bindPopup(function(evt) {
             return L.Util.template(
-                '<h3>{Count}</h3>', evt.feature.properties);
+                '<h3>{LevelofUse}</h3>', evt.feature.properties);
         });
 
     // add hosted feature layer
@@ -119,7 +145,7 @@
      // set up popup for PedCounts layer
         BikeCounts.bindPopup(function(evt) {
             return L.Util.template(
-                '<h3>{Count}</h3>', evt.feature.properties);
+                '<h3>{LevelofUse}</h3>', evt.feature.properties);
         });
  
     // Add overlay layers of PedCounts and Bike Counts
