@@ -34,28 +34,36 @@
             top: 0;
             width: 100%;
             z-index: auto;
-            height: 100px;
+            height: auto;
             color: black;
             background-color: darkblue;
             padding-left: 12px;
+            padding-right: 12px;
             overflow: hidden;
             font-family: Times New Roman, sans-serif;
         }
         
+        header h1{
+            font-family: Times New Roman, sans-serif;
+            color: darkgrey; 
+            font-size: 30px;
+        }
+        
+        header h3{
+            font-family: Times New Roman, sans-serif;
+            color: darkgrey;
+            font-size: 16px;
+        }
         header * {
             display: inline-block;
             margin-right: auto;
-            margin-top: auto;
         }
-     
-        .right * {
-            float: right;
+        .alignleft {
+	       float: left;
         }
-        
-        header h3 {
-            margin-top: 25px;
+        .alignright {
+	       float: right;
         }
-        
     </style>
     
 </head>
@@ -63,9 +71,9 @@
 <body>
     
     <header id="header">
-        <h1> <p style="font-family: serif; color: darkgrey; font-size: 30px;">Bicycle and Pedestrain Counts of Duluth, Minnesota</p> </h1>
+        <h1 class= "alignleft">Bicycle and Pedestrian Counts of Duluth, Minnesota</h1>
             
-        <h3> <p style="font-family: serif; color: darkgrey; font-size: 16px;">GIS 4533 Web-based GIS <br>Authors: Keely Hansen, Sam Sharp and Ryan Peterson<br>Source: Arrowhead Regional Developement Commision (ARDC) </p> </h3>
+        <h3 class= "alignright"> GIS 4533 Web-based GIS <br>Authors: Keely Hansen, Sam Sharp and Ryan Peterson<br>Source: Arrowhead Regional Developement Commision</h3>
         
     </header>
     
