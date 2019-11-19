@@ -37,7 +37,7 @@
             height: auto;
             color: black;
             background-color: darkblue;
-            padding-left: 12px;
+            padding-left: 0px;
             padding-right: 12px;
             overflow: hidden;
             font-family: Times New Roman, sans-serif;
@@ -163,6 +163,23 @@
         
     L.control.layers(overlayMaps).addTo(map); 
         
+    // Add Legend
+   var legend=L.control({position: 'bottomright'});
+        legend.onAdd = function(map) {
+            var div = L.domUtil.create('div','legend');
+                div.innerHTML += "<h4> Level of Use </h4>"
+                div.innerHTML += '<i style="background: #41b6c4"></i><span>Low</span><br>';
+                div.innerHTML += '<i style="background: #2c7fb8"></i><span>Moderate</span><br>';
+                div.innerHTML += '<i style="background: #253494"></i><span>High</span><br>';
+                div.innerHTML += '<i style="background: #302e75"></i><span>Very High</span><br>';
+                div.innerHTML += '<i style="background: #000000"></i><span>Other</span><br>';
+            
+            return div;
+        };
+        legend.addTo(map);
+    
+        
+    
     // Add map coordinates on mouse move
     // https://docs.mapbox.com/,apbox-gl-js/example/mouse-position/
     // demonstration in class from Kris Johnson
