@@ -37,7 +37,7 @@
             height: auto;
             color: black;
             background-color: darkblue;
-            padding-left: 12px;
+            padding-left: 0px;
             padding-right: 12px;
             overflow: hidden;
             font-family: Times New Roman, sans-serif;
@@ -64,6 +64,42 @@
         .alignright {
 	       float: right;
         }
+        
+        .legend {
+  padding: 6px 8px;
+  font: 14px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);*/
+  /*border-radius: 5px;*/
+  line-height: 24px;
+  color: #555;
+}
+.legend h4 {
+  text-align: center;
+  font-size: 16px;
+  margin: 2px 12px 8px;
+  color: #777;
+}
+
+.legend span {
+  position: relative;
+  bottom: 3px;
+}
+
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin: 0 8px 0 0;
+  opacity: 0.7;
+}
+
+.legend i.icon {
+  background-size: 18px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
     </style>
     
 </head>
@@ -163,6 +199,36 @@
         
     L.control.layers(overlayMaps).addTo(map); 
         
+    // Add Legend Bike
+   var legend=L.control({position: 'bottomright'});
+        legend.onAdd = function(map) {
+            var div = L.DomUtil.create('div','legend');
+                div.innerHTML += "<h4> Level of Use Bikes </h4>"
+                div.innerHTML += '<i style="background: #41b6c4"></i><span>Low</span><br>';
+                div.innerHTML += '<i style="background: #2c7fb8"></i><span>Moderate</span><br>';
+                div.innerHTML += '<i style="background: #253494"></i><span>High</span><br>';
+                div.innerHTML += '<i style="background: #302e75"></i><span>Very High</span><br>';
+                div.innerHTML += '<i style="background: #000000"></i><span>Other</span><br>';
+            
+            return div;
+        };
+        legend.addTo(map);
+    
+        // Add Legend Pedestrian
+   var legend=L.control({position: 'bottomleft'});
+        legend.onAdd = function(map) {
+            var div = L.DomUtil.create('div','legend');
+                div.innerHTML += "<h4> Level of Use Pedestrian</h4>"
+                div.innerHTML += '<i style="background: #ffffb2"></i><span>Low</span><br>';
+                div.innerHTML += '<i style="background: #fd8d3c"></i><span>Moderate</span><br>';
+                div.innerHTML += '<i style="background: #f03b20"></i><span>High</span><br>';
+                div.innerHTML += '<i style="background: #a50f15"></i><span>Very High</span><br>';
+                div.innerHTML += '<i style="background: #000000"></i><span>Other</span><br>';
+            
+            return div;
+        };
+        legend.addTo(map);
+    
     // Add map coordinates on mouse move
     // https://docs.mapbox.com/,apbox-gl-js/example/mouse-position/
     // demonstration in class from Kris Johnson
